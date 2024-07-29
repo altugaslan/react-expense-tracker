@@ -8,17 +8,33 @@ import { AddTransaction } from './components/AddTransaction';
 import { GlobalProvider } from './context/GlobalState';
 
 import './App.css';
+import styled from 'styled-components';
+import WalletButton from './components/WalletButton';
+//import { UserProvider } from './context/UserContext';
+
+
+const WalletButtonContainer = styled.div`
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:1;
+`;
 
 function App() {
   return (
     <GlobalProvider>
+      
       <Header />
       <div className="container">
+        <WalletButtonContainer>
+          <WalletButton/>
+        </WalletButtonContainer>
         <Balance />
         <IncomeExpenses />
         <TransactionList />
         <AddTransaction />
       </div>
+      
     </GlobalProvider>
   );
 }
